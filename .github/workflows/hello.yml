@@ -1,8 +1,16 @@
 name: hello-world
-on: push
+
+on:
+  push:
+  pull_request:
+    branches: [ "main" ]
+    types: [ "opened", "synchronize" ]
+  check_suite:
+    types: [requested]
+
 jobs:
-  my-job:
+  hello-world-job:
     runs-on: ubuntu-latest
     steps:
-      - name: my-step
-        run: echo "hello world!"
+      - name: print-step
+        run: echo "Hello World!"
